@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ContactComponent from "./components/Contact/ContactComponent";
 import Header from "./components/Header";
 import CarouselComponent from "./components/Carousel/CarouselComponent";
 import Router from "./router"

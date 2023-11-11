@@ -18,7 +18,7 @@ const Login = () => {
 
       const data = await login(values.username, values.password);
       toast.success("Đăng nhập thành công")
-      navigate("/main")
+      navigate("/")
       saveToLocalStorage("token", JSON.stringify(data.data?.token))
       console.log(data.data?.token);
       console.log('================');

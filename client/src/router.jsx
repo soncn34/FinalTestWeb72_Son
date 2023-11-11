@@ -11,6 +11,7 @@ import MainLayout from "./components/Main";
 import CreateProduct from "./pages/CreateProduct";
 
 
+
 const Router = () => {
 
   // const dispatch = useDispatch()
@@ -38,10 +39,9 @@ const Router = () => {
           ></Route>
           <Route path="/contact" element={<ContactComponent />} />
         </Route>
-        <Route path="/main" element={<MainLayout />}>
-          <Route path="/manage-product" element={<ManageProduct />} />
-          <Route path="/create-product" element={<CreateProduct />} />
-        </Route>
+        <Route path="/main" element={<MainLayout />} />
+        <Route path="/manage-product" element={<ManageProduct />} />
+        <Route path="/create-product" element={<CreateProduct />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
