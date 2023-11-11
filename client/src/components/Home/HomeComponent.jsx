@@ -18,7 +18,7 @@ const HomeComponent = () => {
     <div>
       <h1>Hello from HomeComponent</h1>
       <button>
-        <Link to="/profile">view profile</Link>
+        <Link to="/profile">View profile</Link>
       </button>
     </div>
   );

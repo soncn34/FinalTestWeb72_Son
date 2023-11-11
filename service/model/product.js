@@ -5,31 +5,39 @@ const Product = mongoose.Schema({
         type: String,
         required: true
     },
-    slug: {
-        type: String,
-        required: true,
-    },
+    // slug: {
+    //     type: String,
+    //     required: true,
+    // },
+    
     price: {
         type: Number,
         required: true
     },
-    category: {
-        type: mongoose.Types.ObjectId,
-        ref: "categories",
-        required: true,
-    },
+    
+    // category: {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: "categories",
+    //     required: true,
+    // },
     quantity: {
         type: Number,
         default: 0
     },
-    thumbnail: {
-        type: String,
-        required: true,
+    
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        requird: true,
+        ref: "users",
     },
-    detail: {
-        type: String,
-        required: true,
-    }
+    
+    image: {
+        type: String
+    },
+    // detail: {
+    //     type: String,
+    //     required: true,
+    // }
 }, {
     timestamps: true
 })

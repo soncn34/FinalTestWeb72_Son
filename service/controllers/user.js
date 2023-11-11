@@ -37,6 +37,7 @@ const signUp = async (req, res) => {
 }
 
 const login = async (req, res) => {
+    console.log(req.body);
     const username = req.body.username
     const password = req.body.password
 
@@ -53,10 +54,11 @@ const login = async (req, res) => {
     if (!checkPassword) {
         return res.status(400).json({ message: "Sai mat khau" })
     }
-    console.log(user);
+    
+    // console.log(user);
     const token = jwt.sign({
         id: user.id
-    }, process.env.JWT, {
+    }, process.env.JWT_SECRET_KEY, {
         expiresIn: '1d'
     })
 

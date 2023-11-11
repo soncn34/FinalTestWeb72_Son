@@ -4,7 +4,7 @@ const userModel = require("../model/user")
 
 const authentication = async (req, res, next) => {
     const bearerToken = req.headers.authorization // Khi ma dang nhap vao thanh cong -> backend cap cho ben phia client 1 doan ma
-
+console.log(bearerToken);
     if (!bearerToken) {
         return res.status(401).json({ message: "Ban chua dang nhap" })
     }

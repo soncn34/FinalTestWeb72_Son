@@ -1,52 +1,19 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeComponent from "./components/HomeComponent";
-import AboutComponent from "./components/AboutComponent";
-import ContactComponent from "./components/ContactComponent";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import ContactComponent from "./components/Contact/ContactComponent";
 import Header from "./components/Header";
-import ProductListComponent from "./components/ProductListComponent";
-import ProductDetailComponent from "./components/ProductDetailComponent";
-import ProfileComponent from "./components/ProfileComponent";
-import ProfileSetting from "./components/ProfileSetting";
+import CarouselComponent from "./components/Carousel/CarouselComponent";
+import Router from "./router"
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<HomeComponent />} />
-          <Route path="/about" element={<AboutComponent />} />
-          <Route path="/profile" element={<ProfileComponent />}>
-            <Route index element={<h1>Hello from profile componet</h1>} />
-            <Route
-              path="edit"
-              element={<h1>Hello from profile componet - edit</h1>}
-            />
-            <Route
-              path="courses"
-              element={<h1>Hello from profile componet - courses</h1>}
-            />
-            <Route path="setting" element={<ProfileSetting />}>
-              <Route index element={<h1>Hello from profile setting</h1>} />
-              <Route
-                path="abc"
-                element={<h1>Hello from profile setting - abc component</h1>}
-              />
-            </Route>
-          </Route>
-
-          <Route path="/products" element={<ProductListComponent />} />
-          <Route
-            path="/products/:productId"
-            element={<ProductDetailComponent />}
-          ></Route>
-          <Route path="/contact" element={<ContactComponent />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-        </Routes>
+        <CarouselComponent />
+        <Router />
+        <Footer />
       </BrowserRouter>
     </div>
   );
