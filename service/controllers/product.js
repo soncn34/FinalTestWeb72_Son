@@ -2,6 +2,19 @@ const productModel = require("../model/product")
 const joi = require("joi")
 const userModel = require("../model/user")
 const { uploadImage } = require("../cloudinary");
+
+const getProductById = async (req, res) => {
+    try {
+        const productId = req.params.id
+
+        const product = await productModel.findById(productId)
+
+        return res.status(200).json({product})
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+
 const createProduct = async (req, res) => {
     try {
         // const productSchema = joi.object({
@@ -43,15 +56,32 @@ const updateProduct = async (req, res) => {
         const name = req.body.name
         const price = req.body.price
         const quantity = req.body.quantity
-        const image = req.body.image
+        const image = req.files.image;
+        // let upload = ''
 
+        let dataUpdate = {
+            id,
+            name,
+            price,
+            quantity,
+        }
+
+        // if (image) {
+          let upload = await uploadImage(image)
+          console.log("upload", upload);
+            // dataUpdate = {
+            //     ...dataUpdate,
+            //     image: upload
+            // }
+        // }
+// console.log("dataUpdate",dataUpdate);
         const product = await productModel.findOneAndUpdate({ _id: id }, {
             name,
             price,
             quantity,
-            image
+            image: upload
         }, { new: true })
-
+console.log(product);
         return res.status(200).json({ message: "Update san pham thanh cong", product })
     } catch (error) {
         console.log(error)
@@ -108,5 +138,6 @@ module.exports = {
     updateProduct,
     getProduct,
     getPagingProduct,
-    deleteProduct
+    deleteProduct,
+    getProductById
 }

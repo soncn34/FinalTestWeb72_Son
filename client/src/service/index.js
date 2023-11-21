@@ -48,6 +48,14 @@ const login = (username, password) => {
     return axiosInstance.post('/user/login', { username, password })
 }
 
+const signUp = (data) => {
+  return axiosInstanceAuthen.post('/user/sign-up', data)
+}
+
+const createUser = (data) => {
+  return axiosInstanceAuthen.post('/user', data)
+}
+
 const createProduct = (data) => {
     return axiosInstanceAuthen.post('/product', data)
 }
@@ -74,6 +82,8 @@ export {
     getProduct,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    signUp,
+    createUser
 }
 

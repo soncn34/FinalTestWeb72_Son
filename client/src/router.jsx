@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeComponent from "./components/Home/HomeComponent";
+import HomeComponent from "./pages/Home/HomeComponent";
 import AboutComponent from "./components/About/AboutComponent";
-import ContactComponent from "./components/Contact/ContactComponent";
-import SignIn from "./components/SignIn/SignIn";
-import SignUp from "./components/SignUp/SignUp";
+import ContactComponent from "./pages/Contact/ContactComponent";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 import ProductListComponent from "./components/ProductList/ProductListComponent";
 import ProductDetailComponent from "./components/ProductDetail/ProductDetailComponent";
 import ManageProduct from "./pages/ManageProduct";
-import MainLayout from "./components/Main";
+import MainLayout from "./pages/Main";
 import CreateProduct from "./pages/CreateProduct";
 
 

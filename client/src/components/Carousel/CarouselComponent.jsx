@@ -1,7 +1,10 @@
 import React from 'react';
 import { Carousel } from 'antd';
+import { sliderItems } from "../../data";
+import "./Carousel.css"
+
 const contentStyle = {
-  height: '160px',
+  maxHeight: '600px',
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
@@ -9,18 +12,14 @@ const contentStyle = {
 };
 const CarouselComponent = () => (
   <Carousel autoplay>
-    <div>
-      <h3 style={contentStyle}>1</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>2</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>3</h3>
-    </div>
-    <div>
-      <h3 style={contentStyle}>4</h3>
-    </div>
+     {sliderItems.map((item) => (
+          <div className="carousel" style={contentStyle} bg={item.bg} key={item.id}>
+              <img src={item.img} />
+              <h1>{item.title}</h1>
+              <p>{item.desc}</p>
+              <button>SHOW NOW</button>
+            </div>
+        ))}
   </Carousel>
 );
 export default CarouselComponent;

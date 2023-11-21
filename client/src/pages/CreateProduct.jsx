@@ -30,12 +30,13 @@ const CreateProduct = () => {
             form.setFieldValue("name", product.data.product.name)
             form.setFieldValue("price", product.data.product.price)
             form.setFieldValue("quantity", product.data.product.quantity)
-            form.setFieldValue("slug", product.data.product?.slug)
+            
             setImageUrl(`${CLOUDINARY_URL}/${product.data.product?.image}`)
         } catch (error) {
             console.log(error)
         }
     }
+
 
     const handleChange = (info) => {
         setFile(info.file.originFileObj)
@@ -52,7 +53,7 @@ const CreateProduct = () => {
         formdata.append("price", values.price)
         formdata.append("quantity", values.quantity)
         formdata.append("image", file)
-        formdata.append("slug", values.slug)
+
         if (!params.id) {
             try {
                 const result = await createProduct(formdata)
@@ -62,7 +63,7 @@ const CreateProduct = () => {
                     title: "Tạo sản phẩm thành công",
                     position: 'top'
                 })
-                navigate("/manage-product")
+                navigate("/main/manage-product")
             } catch (error) {
                 console.log(error)
                 toast({
@@ -80,7 +81,7 @@ const CreateProduct = () => {
                     title: "Update sản phẩm thành công",
                     position: 'top'
                 })
-                navigate("/manage-product")
+                navigate("/main/manage-product")
 
             } catch (error) {
                 console.log(error)

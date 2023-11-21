@@ -2,7 +2,7 @@ import { Button, Pagination } from "antd"
 import { Link } from "react-router-dom"
 import { Space, Table, Tag, Popconfirm } from 'antd';
 import { useEffect, useState } from "react";
-import { deleteProduct, getProduct } from "../service";
+import { deleteProduct, getProduct, updateProduct } from "../service";
 import { CLOUDINARY_URL } from "../config";
 import { useToast } from "@chakra-ui/react";
 
@@ -87,7 +87,7 @@ const ManageProduct = () => {
             render: (_, record) => (
                 <Space size="middle">
                     {console.log(record)}
-                    <Link to={`/edit-product/${record._id}`}>Edit</Link>
+                    <Link to={`/main/edit-product/${record._id}`}>Edit</Link>
                     <Popconfirm title="Delete product" description="Are you sure to delete this product?" onConfirm={() => { deleteProducts(record._id) }}>Delete</Popconfirm>
                 </Space>
             ),
@@ -96,7 +96,7 @@ const ManageProduct = () => {
 
     return (
         <>
-            <Link to={'/create-product'}><Button type="primary">Thêm mới sản phẩm</Button></Link>
+            <Link to={'/main/create-product'}><Button type="primary">Thêm mới sản phẩm</Button></Link>
             <Table columns={columns} dataSource={products} pagination={false} style={{ marginTop: '10px' }} />
             <Pagination current={pageIndex} pageSize={pageSize} total={count} style={{ marginTop: '10px' }} onChange={(page, pageSize) => { setPageIndex(page); setPageSize(pageSize) }} showSizeChanger pageSizeOptions={[3, 5, 8]} />
         </>
